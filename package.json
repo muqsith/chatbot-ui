@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "serve": "serve dist -p 8501",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "prepare": "husky"
+    "dev": "./node_modules/.bin/vite",
+    "build": "./node_modules/.bin/tsc -b && ./node_modules/.bin/vite build",
+    "serve": "./node_modules/.bin/serve dist -p 8501",
+    "lint": "./node_modules/.bin/eslint .",
+    "preview": "./node_modules/.bin/vite preview",
+    "prepare": "./node_modules/.bin/husky"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",

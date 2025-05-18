@@ -9,6 +9,12 @@ async def echo(websocket):  # Removed 'path' parameter as it's no longer needed 
     try:
         async for message in websocket:
             print("Received message:", message, flush=True)
+
+            print("Processing message...", flush=True)
+
+            # Simulate some processing
+            await asyncio.sleep(10)
+            print("Processing complete", flush=True)
             
             # Echo the message back
             await websocket.send(message)

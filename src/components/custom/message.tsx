@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion } from 'framer-motion';
 import { cx } from 'classix';
 import { SparklesIcon } from './icons';
 import { Markdown } from './markdown';
@@ -42,8 +42,28 @@ export const PreviewMessage = ({ message }: { message: message; }) => {
   );
 };
 
+
 export const ThinkingMessage = () => {
   const role = 'assistant';
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    let decreasing = true;
+    const interval = setInterval(() => {
+      setOpacity(prev => {
+        if (decreasing) {
+          if (prev > 0.1) return prev - 0.1;
+          decreasing = false;
+          return prev;
+        } else {
+          if (prev < 1) return prev + 0.1;
+          decreasing = true;
+          return prev;
+        }
+      });
+    }, 75);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <motion.div
@@ -59,7 +79,14 @@ export const ThinkingMessage = () => {
         )}
       >
         <div className="size-8 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border">
-          <SparklesIcon size={14} />
+          <span
+            style={{
+              opacity,
+              transition: "opacity 75ms linear"
+            }}
+          >
+            <SparklesIcon size={14} />
+          </span>
         </div>
       </div>
     </motion.div>
