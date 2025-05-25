@@ -1,0 +1,19 @@
+Frontend
+
+$ npm run dev
+
+http://localhost:8501/
+
+
+
+Backend (temporary)
+
+# create .venv if it doesn't already exists
+$ python -m venv .venv
+
+# set .venv in usage
+$ source .venv/bin/activate
+
+# install deps
+$ pip install fastapi uvicorn
+
