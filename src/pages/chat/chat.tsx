@@ -11,7 +11,9 @@ import { v4 as uuidv4 } from 'uuid';
 const USE_WEBSOCKET = false; // Set to true for WebSocket, false for HTTP
 
 const WS_URL = "ws://localhost:8090";
-const HTTP_URL = "http://localhost:8502/api/chat/homework";
+// const HTTP_URL = "http://localhost:8502/api/chat/homework";
+// const HTTP_URL = "http://localhost:8502/api/chat/deepwiki";
+const HTTP_URL = "http://localhost:8502/api/chat/weather";
 
 export function Chat() {
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>();
